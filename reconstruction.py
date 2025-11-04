@@ -30,12 +30,12 @@ def get_default_config():
         "mask_json_path": "experiments/vit_pruning/artifacts/20251101-132101/ffn_prune_masks.json",
         "output_model_dir": "experiments/vit_pruning/reconstructed_model",
         "dataset": "cifar100",
-        "test_pct": 0.2,
+        "test_pct": 1.0,
         "calibration_samples": 512,
         "newton_steps": 5,
         "cg_iters": 100,
         "batch_size": 32,
-        "eval_batches": 5,
+        "eval_batches": 50,
     }
 
 
@@ -605,7 +605,7 @@ def parse_args():
     parser.add_argument("--calib-samples", type=int, default=512)
     parser.add_argument("--newton-steps", type=int, default=5)
     parser.add_argument("--cg-iters", type=int, default=100)
-    parser.add_argument("--batch-size", type=int, default=32)
+    parser.add_argument("--batch-size", type=int, default=64)
     parser.add_argument("--eval-batches", type=int, default=5)
 
     return parser.parse_args()
